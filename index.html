@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Sbt Auth + TS</title>
+  </head>
+  <body>
+    <h1>SBT Auth + VanillaJs</h1>
+    <p class="address"></p>
+    <div class="card">
+      <button id="connect">
+        <span id="connect-loading" hidden>
+          <i class="fa fa-spinner fa-spin"></i>
+        </span>
+        Login
+      </button>
+      <button id="logout">
+        <span id="logout-loading" hidden>
+          <i class="fa fa-spinner fa-spin"></i>
+        </span>
+        Logout</button>
+      <button id="disconnect">Disconnect</button>
+      <button id="getUserInfo">Get User Info</button>
+      <button id="getAccount">Get Account</button>
+      <button id="getBalance">Get Balance</button>
+      <button id="signMessage">Sign Message</button>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
