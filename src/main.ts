@@ -5,8 +5,7 @@ import './style.css'
 // Initialize sbtauth
 const sbtauth = new SbtAuthWallet({
 	developMode: true,
-	defaultChainId: '0x4',
-	targetUrl: 'https://localhost:4000'
+	defaultChainId: '0x5',
 })
 
 const connectButton = document.querySelector('#connect')
