@@ -21,6 +21,7 @@ const contractAddress = "0xee68a176176AF73C5A1e341F0F6fD1f58a42fFBb";
 const sbtauth = new SbtAuthWallet({
   developMode: true,
   defaultChainId: "0x5",
+  targetUrl: 'https://test-connect.sbtauth.io'
 });
 
 const connectButton = document.querySelector("#connect");
@@ -102,10 +103,12 @@ registerDomainButton?.addEventListener("click", async () => {
   try {
     const result = await contract.register(recommander, address, randomDomain, {
       value: ethers.utils.parseUnits("0.06"),
+      gasPrice: ethers.utils.parseUnits("50", '9')
     });
-    const receipt = await result.wait();
+    console.log(result.hash);
+    // const receipt = await result.wait();
     window.alert(
-      `Congratualations! ${randomDomain} registered! Transaction hash ${receipt.transactionHash}`
+      `Congratualations! ${randomDomain} registered! Transaction hash ${result.hash}`
     );
   } catch (error) {
     window.alert(error);
