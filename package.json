@@ -13,7 +13,7 @@
 		"vite": "^3.1.0"
 	},
 	"dependencies": {
-		"@sbtauth/sbtauth-wallet": "^0.3.1",
+		"@sbtauth/sbtauth-wallet": "^0.5.7",
 		"ethers": "^5.6.9"
 	}
 }

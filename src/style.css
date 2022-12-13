@@ -13,6 +13,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --sbtauth-height: 400px;
+  --sbtauth-width: 400px;
+  --sbtauth-background: #fff;
+  --sbtauth-onbackground: #000;
+  --sbtauth-border-radius: 20px;
 }
 
 a {
@@ -66,10 +72,6 @@ h1 {
   gap: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -87,6 +89,10 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+#sbtauth-login {
+  border-radius: 20px;
+  border: 1px solid black;
 }
 
 @media (prefers-color-scheme: light) {
