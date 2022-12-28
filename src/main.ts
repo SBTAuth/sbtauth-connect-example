@@ -6,24 +6,27 @@ import './style.css'
 const sbtauth = new SbtAuthWallet({
 	developMode: true,
 	defaultChainId: '0x5',
-	targetUrl: 'https://test-connect.sbtauth.io',
 	uiConfig: {
 		theme: 'light',
 		locale: 'zh-TW',
+		showWallets: false,
 	},
 })
 
-// Insert sbtauth login component into document tree
+const icon = SbtAuthWallet.icon
+
+const logo = document.querySelector('#logo') as HTMLImageElement
+logo.src = icon
+
 const loginWidget = sbtauth.provider?.loginWidget()
+
 if (loginWidget) {
 	document.querySelector('#sbtauth-login')?.append(loginWidget)
 }
-
 const walletActions = document.querySelector('#wallet-actions') as HTMLElement
 const walletLogin = document.querySelector('#sbtauth-login') as HTMLElement
 walletActions.style.display = 'none'
 
-// Check if user is logged in
 sbtauth.provider.on('accountsChanged', async (data: string[] | undefined) => {
 	console.log('connected', data)
 	if (data && data.length > 0) {
@@ -82,7 +85,6 @@ getAccountButton?.addEventListener('click', () => {
 	window.alert(address)
 })
 
-// Get user balance
 const getBalanceButton = document.querySelector('#getBalance')
 getBalanceButton?.addEventListener('click', async () => {
 	console.log(sbtauth.provider)
@@ -93,7 +95,6 @@ getBalanceButton?.addEventListener('click', async () => {
 	window.alert(balance)
 })
 
-// Sign message with sbtauth provider
 const signMessageButton = document.querySelector('#signMessage')
 signMessageButton?.addEventListener('click', async () => {
 	console.log(sbtauth)
@@ -106,7 +107,6 @@ signMessageButton?.addEventListener('click', async () => {
 	window.alert(signature)
 })
 
-// Send a transaction with sbtauth provider
 const signTransactionButton = document.querySelector('#signTransaction')
 signTransactionButton?.addEventListener('click', async () => {
 	console.log(sbtauth)

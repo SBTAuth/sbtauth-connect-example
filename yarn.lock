@@ -445,10 +445,10 @@
     events "^3.3.0"
     query-string "^7.1.1"
 
-"@sbtauth/sbtauth-wallet@^0.5.7":
-  version "0.5.7"
-  resolved "https://registry.npmjs.org/@sbtauth/sbtauth-wallet/-/sbtauth-wallet-0.5.7.tgz#c0e242a6a206fda38683256241a26eb9c384392c"
-  integrity sha512-dq+xIdB3D/xjovdzFsjcg3Df+RCSoAcrnhGF59F80fAkB1ue97j3HuETU7DiCX0XKSAHrLAqLUjFoFfFFlqOAg==
+"@sbtauth/sbtauth-wallet@^0.5.8":
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/@sbtauth/sbtauth-wallet/-/sbtauth-wallet-0.5.8.tgz#c75d6d06670b56df9d01a571c784da0bb35cb850"
+  integrity sha512-ul+vojtD0WDdevdBFa3MznbIdwaoWCpsPFJA57CCzL2GFja/XkBLdlozHKeKfz6/5FPnT42GBg50F0/IxMAYeg==
   dependencies:
     "@sbtauth/provider" "0.5.7"
 
