@@ -1,3 +1,5 @@
+import { encrypt } from '@metamask/eth-sig-util'
+import { Chain } from '@sbtauth/common'
 import { SbtAuthWallet } from '@sbtauth/sbtauth-wallet'
 import { ethers } from 'ethers'
 import './style.css'
@@ -11,8 +13,9 @@ const sbtauth = new SbtAuthWallet({
 		locale: 'zh-TW',
 		showWallets: false,
 	},
+	targetUrl: "https://test-connect.sbtauth.io",
+	supportChains: [Chain.bitcoin],
 })
-
 const icon = SbtAuthWallet.icon
 
 const logo = document.querySelector('#logo') as HTMLImageElement
@@ -107,6 +110,27 @@ signMessageButton?.addEventListener('click', async () => {
 	window.alert(signature)
 })
 
+const encryptMessage = (publicKey: string) => {
+	const encrypted = encrypt({ publicKey, data: 'Hello world', version: 'x25519-xsalsa20-poly1305' })
+	return '0x' + Buffer.from(JSON.stringify(encrypted), 'utf8').toString('hex')
+}
+const getEncryptionPublicKyeButton = document.querySelector('#getEncryptionPublicKey')
+getEncryptionPublicKyeButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider) return
+	const pubkey = await sbtauth.provider.request({ method: 'eth_getEncryptionPublicKey' })
+	const element = document.querySelector('#testEncryptData')
+	element!.innerHTML = 'Encrypted "Hello world" \n' + encryptMessage(pubkey)
+	window.alert(pubkey)
+})
+
+const decryptMessageButton = document.querySelector('#ethDecrypt')
+decryptMessageButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider) return
+	const message = prompt("What's your encrypted message?")
+	const decryptedMessage = await sbtauth.provider.request({ method: 'eth_decrypt', params: [message] })
+	window.alert(decryptedMessage)
+})
+
 const signTransactionButton = document.querySelector('#signTransaction')
 signTransactionButton?.addEventListener('click', async () => {
 	console.log(sbtauth)
@@ -122,4 +146,38 @@ signTransactionButton?.addEventListener('click', async () => {
 	const address = '0xff04b6fBd9FEcbcac666cc0FFfEed58488c73c7B'
 	const erc20 = new ethers.Contract(address, abi, signer)
 	await erc20.transfer('ricmoo.eth', ethers.utils.parseUnits('1.23'))
+})
+
+const getBitcoinAccountButton = document.querySelector('#getBitcoinAccount')
+getBitcoinAccountButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider.bitcoinProvider) {
+		return
+	}
+	const bitcoinAddress = sbtauth.provider.bitcoinProvider!.accounts[0]
+	window.alert(bitcoinAddress)
+})
+
+const getBitcoinBalanceButton = document.querySelector('#getBitcoinBalance')
+getBitcoinBalanceButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider.bitcoinProvider) return
+	const value = await sbtauth.provider.bitcoinProvider.getBalance()
+	window.alert(value)
+})
+
+const signBitcoinTransactionButton = document.querySelector('#signBitcoinTransaction')
+signBitcoinTransactionButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider.bitcoinProvider) {
+		return
+	}
+	const transaction = {
+		to: 'tb1qyp4y9lf30hcvkm5rac3vl33qwhrnyuy07fepx7',
+		value: 10_000,
+		feeRate: 100,
+	}
+	try {
+		const signature = await sbtauth.provider.bitcoinProvider!.sendTransaction(transaction)
+		window.alert(signature)
+	} catch (error) {
+		window.alert(error)
+	}
 })
