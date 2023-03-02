@@ -10,37 +10,48 @@
     />
     <link rel="stylesheet" href="./src/style.css" />
     <!-- <script type="module" src="./node_modules/@sbtauth/ui/dist/index.mjs"></script> -->
-    <title>Sbt Auth + TS</title>
+    <title>SBTAuth + TS</title>
   </head>
   <body>
-    <h1>SBTAuth <img id="logo" src="" alt="logo" /> + VanillaJs</h1>
+    <h1><img id="logo" alt="logo" /> SBTAuth + VanillaJs</h1>
 
     <div id="sbtauth-login"></div>
-    <p class="address"></p>
-    <div class="card" id="wallet-actions" hidden>
-      <!-- <button id="connect">
-        <span id="connect-loading" hidden>
-          <i class="fa fa-spinner fa-spin"></i>
-        </span>
-        Login
-      </button> -->
-      <button id="disconnect">Disconnect</button>
-      <button id="getUserInfo">Get User Info</button>
-      <button id="getAccount">Get Account</button>
-      <button id="getBalance">Get Balance</button>
-      <button id="signMessage">Sign Message</button>
-      <button id="signTransaction">Sign Transaction</button>
-      <button id="getEncryptionPublicKey">Get Encryption Public Key</button>
-      <button id="ethDecrypt">Eth Decrypt</button>
-    </div>
-    <div style="width: 800px">
-      <span style="word-wrap: break-word; word-break: break-all;" id="testEncryptData"></span>
-    </div>
-    <div class="title">Bitcoin(beta)</div>
-    <div class="card">
-      <button id="getBitcoinAccount">Get Account</button>
-      <button id="getBitcoinBalance">Get Balance</button>
-      <button id="signBitcoinTransaction">Sign Transaction</button>
+    <div id="actions" hidden>
+      <div class="title">SBTAuth</div>
+      <div class="card" id="wallet-actions" hidden>
+        <button id="getUserInfo">Get User Info</button>
+        <button id="disconnect">Disconnect</button>
+      </div>
+      <div class="title">Evm</div>
+      <p class="address"></p>
+      <div class="card" id="wallet-actions" hidden>
+        <button id="getAccount">Get Account</button>
+        <button id="getBalance">Get Balance</button>
+        <button id="signMessage">Sign Message</button>
+        <button id="signTransaction">Sign Transaction</button>
+        <button id="getEncryptionPublicKey">GetEncryptionPublicKey</button>
+        <button id="ethDecrypt">Eth decrypt</button>
+      </div>
+      <div>
+        <span
+          style="word-wrap: break-word; word-break: break-all"
+          id="testEncryptData"
+        ></span>
+      </div>
+      <div class="title">Solana(beta)</div>
+      <div class="card">
+        <button id="getSolanaAccount">Get Account</button>
+        <button id="getSolanaBalance">Get Balance</button>
+        <button id="signSolanaMessage">Sign Message</button>
+        <button id="signSolanaTransaction">Sign Transaction</button>
+        <button id="addSolanaToken">Add Token</button>
+      </div>
+      <div class="title">Bitcoin(beta)</div>
+      <div class="card">
+        <button id="getBitcoinAccount">Get Account</button>
+        <button id="getBitcoinBalance">Get Balance</button>
+        <button id="signBitcoinTransaction">Sign Transaction</button>
+      </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

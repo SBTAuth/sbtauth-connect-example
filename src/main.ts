@@ -1,6 +1,7 @@
 import { encrypt } from '@metamask/eth-sig-util'
 import { Chain } from '@sbtauth/common'
 import { SbtAuthWallet } from '@sbtauth/sbtauth-wallet'
+import { PublicKey, SystemProgram, Transaction } from '@solana/web3.js'
 import { ethers } from 'ethers'
 import './style.css'
 
@@ -8,12 +9,12 @@ import './style.css'
 const sbtauth = new SbtAuthWallet({
 	developMode: true,
 	defaultChainId: '0x5',
+	targetUrl: 'https://test-connect.sbtauth.io',
 	uiConfig: {
 		theme: 'light',
 		locale: 'zh-TW',
 		showWallets: false,
 	},
-	targetUrl: "https://test-connect.sbtauth.io",
 	supportChains: [Chain.bitcoin],
 })
 const icon = SbtAuthWallet.icon
@@ -28,13 +29,12 @@ if (loginWidget) {
 }
 const walletActions = document.querySelector('#wallet-actions') as HTMLElement
 const walletLogin = document.querySelector('#sbtauth-login') as HTMLElement
-walletActions.style.display = 'none'
+const actions = document.querySelector('#actions') as HTMLElement
 
 sbtauth.provider.on('accountsChanged', async (data: string[] | undefined) => {
 	console.log('connected', data)
 	if (data && data.length > 0) {
-		walletActions.style.display = 'grid'
-		walletLogin.style.display = 'none'
+		actions.hidden = false
 		const result = await sbtauth.provider.request({
 			method: 'eth_login_silent',
 			params: ['test'],
@@ -44,12 +44,11 @@ sbtauth.provider.on('accountsChanged', async (data: string[] | undefined) => {
 })
 
 sbtauth.provider.on('disconnect', async () => {
-	walletActions.style.display = 'none'
-	walletLogin.style.display = 'block'
-	const loginWidget = sbtauth.provider?.loginWidget()
-	if (loginWidget) {
-		walletLogin?.replaceChild(walletLogin.firstChild!, loginWidget)
-	}
+	actions.hidden = true
+	// const loginWidget = sbtauth.provider?.loginWidget()
+	// if (loginWidget) {
+	// 	walletLogin?.replaceChild(walletLogin.firstChild!, loginWidget)
+	// }
 })
 
 const connectButton = document.querySelector('#connect')
@@ -119,7 +118,7 @@ getEncryptionPublicKyeButton?.addEventListener('click', async () => {
 	if (!sbtauth.provider) return
 	const pubkey = await sbtauth.provider.request({ method: 'eth_getEncryptionPublicKey' })
 	const element = document.querySelector('#testEncryptData')
-	element!.innerHTML = 'Encrypted "Hello world" \n' + encryptMessage(pubkey)
+	element!.innerHTML = encryptMessage(pubkey)
 	window.alert(pubkey)
 })
 
@@ -180,4 +179,45 @@ signBitcoinTransactionButton?.addEventListener('click', async () => {
 	} catch (error) {
 		window.alert(error)
 	}
+})
+
+const getSolanaAccountButton = document.querySelector('#getSolanaAccount')
+getSolanaAccountButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider.solanaProvider) {
+		const solanaAddress = sbtauth.provider.solanaProvider!.publicKey?.toBase58()
+		window.alert(solanaAddress)
+	}
+})
+
+const getSolanaBalanceButton = document.querySelector('#getSolanaBalance')
+getSolanaBalanceButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider.solanaProvider) return
+	const value = await sbtauth.provider.solanaProvider.getBalance()
+	window.alert(value)
+})
+const signSolanaMessageButton = document.querySelector('#signSolanaMessage')
+signSolanaMessageButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider.solanaProvider) {
+		return
+	}
+	const signature = await sbtauth.provider.solanaProvider!.signMessage(
+		'Hello world',
+	)
+	window.alert(signature)
+})
+
+const signSoalanaTransactionButton = document.querySelector('#signSolanaTransaction')
+signSoalanaTransactionButton?.addEventListener('click', async () => {
+	if (!sbtauth.provider.solanaProvider) {
+		return
+	}
+	const transaction = new Transaction().add(
+		SystemProgram.transfer({
+			fromPubkey: sbtauth.provider.solanaProvider!.publicKey!,
+			toPubkey: new PublicKey('Bzq4zZ7KX9q4zZ7KX9q4zZ7KX9q4zZ7KX9q4zZ7KX9q'),
+			lamports: 1_000_000,
+		}),
+	)
+	const signature = await sbtauth.provider.solanaProvider!.sendTransaction(transaction)
+	window.alert(signature)
 })

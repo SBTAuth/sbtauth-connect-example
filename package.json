@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"@metamask/eth-sig-util": "^5.0.2",
-		"@sbtauth/sbtauth-wallet": "^0.7.6",
-		"ethers": "^5.6.9"
+		"@sbtauth/sbtauth-wallet": "^0.7.8",
+		"ethers": "^5.7.0"
 	}
 }

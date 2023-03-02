@@ -46,6 +46,14 @@ h1 {
   text-align: center;
 }
 
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px 0;
+  font-weight: 700;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -93,6 +101,12 @@ button:focus-visible {
 #sbtauth-login {
   border-radius: 20px;
   border: 1px solid black;
+}
+
+#actions {
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+  width: 900px;
 }
 
 @media (prefers-color-scheme: light) {
