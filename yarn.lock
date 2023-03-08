@@ -485,59 +485,43 @@
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
 
-"@sbtauth/bitcoin-provider@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/@sbtauth/bitcoin-provider/-/bitcoin-provider-0.7.1.tgz#370ff4b7109511adcf71a9e778e06323ef2d1b25"
-  integrity sha512-WHaIbvBnvNqcptaEcdo9kzJdyA/jZT7tWGe4oXQ59MKVtNWdgpDAGfO4OFmn7qXtmFR2ZVqNturXhGNp1Jsb1A==
-  dependencies:
-    "@sbtauth/common" "0.7.1"
-    bitcoinjs-lib "^6.1.0"
-    cross-fetch "^3.1.5"
-    eventemitter3 "^4.0.7"
-    events "^3.3.0"
-    query-string "^7.1.1"
-
-"@sbtauth/common@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/@sbtauth/common/-/common-0.7.1.tgz#a05360dfbf0cc270b3897cc91af305b100ccce75"
-  integrity sha512-ZSaoy8svPyi3oH6G+MXCJb/bSmXIM6isXU0+8lOHp4XMQT+9V3wqKjb7BSCrStx6Xl5ry/XdGjjr/HemYwAPMA==
-  dependencies:
-    "@solana/wallet-adapter-base" "^0.9.19"
-    "@solana/web3.js" "^1.69.0"
-    "@walletconnect/jsonrpc-utils" "^1.0.3"
-    "@walletconnect/safe-json" "^1.0.0"
-    bitcoinjs-lib "^6.1.0"
-    cross-fetch "^3.1.5"
-    events "^3.3.0"
-    query-string "^7.1.1"
-
-"@sbtauth/inpage-provider@0.7.8":
-  version "0.7.8"
-  resolved "https://registry.npmjs.org/@sbtauth/inpage-provider/-/inpage-provider-0.7.8.tgz#bbf8a1586cc497b88cce2c3bf29384bc3748d45b"
-  integrity sha512-ja3KmR2fIDc98QSyjnadCiOQOu+LircBmMCT2dSQzwkGuTyDqYP2A0wInd84TPelj18nKLd/OXJgYPJTzUauaw==
-  dependencies:
-    "@sbtauth/bitcoin-provider" "0.7.1"
-    "@sbtauth/common" "0.7.1"
-    "@sbtauth/provider" "0.7.2"
-    "@sbtauth/ui" "0.7.1"
-    "@solana/wallet-adapter-base" "^0.9.19"
-    "@solana/web3.js" "^1.69.0"
-    "@walletconnect/jsonrpc-provider" "^1.0.5"
-    "@walletconnect/jsonrpc-utils" "^1.0.3"
-    "@walletconnect/safe-json" "^1.0.0"
-    cross-fetch "^3.1.5"
-    eip1193-provider "^1.0.1"
-    eventemitter3 "^4.0.7"
-    events "^3.3.0"
-    query-string "^7.1.1"
-
-"@sbtauth/provider@0.7.2":
+"@sbtauth/bitcoin-provider@0.7.2":
   version "0.7.2"
-  resolved "https://registry.npmjs.org/@sbtauth/provider/-/provider-0.7.2.tgz#e2c387f88967b3b8a843fae949c3998c9bb76460"
-  integrity sha512-4WRAaEWOPHMQ8pvsvCJuh8AMwybhZisavwo7liHjtQs4NwHpRFpLEoozQ4tmL8nN6UfG3zKR5tXVNF4okzqEeg==
+  resolved "https://registry.npmjs.org/@sbtauth/bitcoin-provider/-/bitcoin-provider-0.7.2.tgz#d260920da1440833ccab114e3d3f3817c8ce0b8c"
+  integrity sha512-U9s5X7r2G2EX5IuAt5XJY4hKopM1KsCK4O5DzC1VQlu6JQhu6N3fFrQsDBBvFl+aD5TfCDZoSwQdoFoJ3LGWrQ==
   dependencies:
-    "@sbtauth/common" "0.7.1"
-    "@sbtauth/ui" "0.7.1"
+    "@sbtauth/common" "0.7.2"
+    bitcoinjs-lib "^6.1.0"
+    cross-fetch "^3.1.5"
+    eventemitter3 "^4.0.7"
+    events "^3.3.0"
+    query-string "^7.1.1"
+
+"@sbtauth/common@0.7.2":
+  version "0.7.2"
+  resolved "https://registry.npmjs.org/@sbtauth/common/-/common-0.7.2.tgz#74128e3514ad1c70ea1ea7b30ceda3061baed498"
+  integrity sha512-2gtN3avdXFU+nUKhjPiRuUfR4EjTTb/3gntNUfLPzKilW8PFAEQJVTTqkGd7u9gaRy+0WYpiyfq5Y3lE/f5aqQ==
+  dependencies:
+    "@solana/wallet-adapter-base" "^0.9.19"
+    "@solana/web3.js" "^1.69.0"
+    "@walletconnect/jsonrpc-utils" "^1.0.3"
+    "@walletconnect/safe-json" "^1.0.0"
+    bitcoinjs-lib "^6.1.0"
+    cross-fetch "^3.1.5"
+    events "^3.3.0"
+    query-string "^7.1.1"
+
+"@sbtauth/inpage-provider@0.7.9":
+  version "0.7.9"
+  resolved "https://registry.npmjs.org/@sbtauth/inpage-provider/-/inpage-provider-0.7.9.tgz#32b1dd3bd5dd19edad282b7124f418dc3f139ed4"
+  integrity sha512-FWmOB25uI7h6ymP0/m4auNJe08z+8x7Sg+2pUgHVBYC/CyNxnfps+B/MbLKBD6AUtlU/P3zaFRBH0TkQ6u9hcA==
+  dependencies:
+    "@sbtauth/bitcoin-provider" "0.7.2"
+    "@sbtauth/common" "0.7.2"
+    "@sbtauth/provider" "0.7.3"
+    "@sbtauth/ui" "0.7.2"
+    "@solana/wallet-adapter-base" "^0.9.19"
+    "@solana/web3.js" "^1.69.0"
     "@walletconnect/jsonrpc-provider" "^1.0.5"
     "@walletconnect/jsonrpc-utils" "^1.0.3"
     "@walletconnect/safe-json" "^1.0.0"
@@ -547,18 +531,34 @@
     events "^3.3.0"
     query-string "^7.1.1"
 
-"@sbtauth/sbtauth-wallet@^0.7.8":
-  version "0.7.8"
-  resolved "https://registry.npmjs.org/@sbtauth/sbtauth-wallet/-/sbtauth-wallet-0.7.8.tgz#0c020e3424323505ad1f9bc700e4dd21f212642e"
-  integrity sha512-lsqsRejcFj3FjfdxNPnxWB61wuajC7JHToJYOPU30el7m0W9MVO/+/ttStFg+qnmNVz1nNsneIPZGuzToNAf7A==
+"@sbtauth/provider@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.npmjs.org/@sbtauth/provider/-/provider-0.7.3.tgz#f4842f9fd722e6acdbaf2808197f445ff80a3086"
+  integrity sha512-kiHVC9BgCZw9xBfgX/I54VUKgZoKZdgWowad6QR1x3hRcdqgJywfSuv9+JPjaHNbmYeczfVwEIxGKVGwVMEBYA==
   dependencies:
-    "@sbtauth/common" "0.7.1"
-    "@sbtauth/inpage-provider" "0.7.8"
+    "@sbtauth/common" "0.7.2"
+    "@sbtauth/ui" "0.7.2"
+    "@walletconnect/jsonrpc-provider" "^1.0.5"
+    "@walletconnect/jsonrpc-utils" "^1.0.3"
+    "@walletconnect/safe-json" "^1.0.0"
+    cross-fetch "^3.1.5"
+    eip1193-provider "^1.0.1"
+    eventemitter3 "^4.0.7"
+    events "^3.3.0"
+    query-string "^7.1.1"
 
-"@sbtauth/ui@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/@sbtauth/ui/-/ui-0.7.1.tgz#5adced92859e4eb364b71b33cb78c0517043a9cf"
-  integrity sha512-u1uGuslUfnZmxWIi09ZjtzdVJZIEPrtguugNyiTysWfqPqB+TPwxj0P5mEjb/LP2WfDcN2oljRI6yQN8NlZdAQ==
+"@sbtauth/sbtauth-wallet@^0.7.9":
+  version "0.7.9"
+  resolved "https://registry.npmjs.org/@sbtauth/sbtauth-wallet/-/sbtauth-wallet-0.7.9.tgz#a2f6414cf2fae2ce638f53f455e1c0360d87a0fa"
+  integrity sha512-FCRl9zZmE2NR3HKdrAc/NuTeFMvVq/iNSp6ITQOcnOuABc5jhZy35AnnJhk5KOUq3pLufQA3Nwzf3mPAAXvrog==
+  dependencies:
+    "@sbtauth/common" "0.7.2"
+    "@sbtauth/inpage-provider" "0.7.9"
+
+"@sbtauth/ui@0.7.2":
+  version "0.7.2"
+  resolved "https://registry.npmjs.org/@sbtauth/ui/-/ui-0.7.2.tgz#483a610e868e7096c7ef90b252083e57dfb1bba9"
+  integrity sha512-96leQxhcq0+4fQ2WEf4aOlhdQ1ZRg17qcWPaJ3CkUrv9vxhhwHdW11AKVwLlQd6ep3pt/IJnZkyl+UpxpMCOjg==
   dependencies:
     "@lit/localize" "^0.11.4"
     "@types/qrcode" "^1.5.0"

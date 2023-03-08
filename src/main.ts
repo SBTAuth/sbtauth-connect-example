@@ -34,12 +34,9 @@ const actions = document.querySelector('#actions') as HTMLElement
 sbtauth.provider.on('accountsChanged', async (data: string[] | undefined) => {
 	console.log('connected', data)
 	if (data && data.length > 0) {
-		actions.hidden = false
-		const result = await sbtauth.provider.request({
-			method: 'eth_login_silent',
-			params: ['test'],
-		})
-		console.log('returned result', { result })
+		// actions.hidden = false
+		const user = sbtauth.getUserInfo()
+		console.log(user);
 	}
 })
 
