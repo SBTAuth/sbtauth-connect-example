@@ -1,7 +1,6 @@
 import { encrypt } from '@metamask/eth-sig-util'
 import { Chain } from '@sbtauth/common'
 import { SbtAuthWallet } from '@sbtauth/sbtauth-wallet'
-import { PublicKey, SystemProgram, Transaction } from '@solana/web3.js'
 import { ethers } from 'ethers'
 import './style.css'
 
@@ -178,43 +177,43 @@ signBitcoinTransactionButton?.addEventListener('click', async () => {
 	}
 })
 
-const getSolanaAccountButton = document.querySelector('#getSolanaAccount')
-getSolanaAccountButton?.addEventListener('click', async () => {
-	if (!sbtauth.provider.solanaProvider) {
-		const solanaAddress = sbtauth.provider.solanaProvider!.publicKey?.toBase58()
-		window.alert(solanaAddress)
-	}
-})
+// const getSolanaAccountButton = document.querySelector('#getSolanaAccount')
+// getSolanaAccountButton?.addEventListener('click', async () => {
+// 	if (!sbtauth.provider.solanaProvider) {
+// 		const solanaAddress = sbtauth.provider.solanaProvider!.publicKey?.toBase58()
+// 		window.alert(solanaAddress)
+// 	}
+// })
 
-const getSolanaBalanceButton = document.querySelector('#getSolanaBalance')
-getSolanaBalanceButton?.addEventListener('click', async () => {
-	if (!sbtauth.provider.solanaProvider) return
-	const value = await sbtauth.provider.solanaProvider.getBalance()
-	window.alert(value)
-})
-const signSolanaMessageButton = document.querySelector('#signSolanaMessage')
-signSolanaMessageButton?.addEventListener('click', async () => {
-	if (!sbtauth.provider.solanaProvider) {
-		return
-	}
-	const signature = await sbtauth.provider.solanaProvider!.signMessage(
-		'Hello world',
-	)
-	window.alert(signature)
-})
+// const getSolanaBalanceButton = document.querySelector('#getSolanaBalance')
+// getSolanaBalanceButton?.addEventListener('click', async () => {
+// 	if (!sbtauth.provider.solanaProvider) return
+// 	const value = await sbtauth.provider.solanaProvider.getBalance()
+// 	window.alert(value)
+// })
+// const signSolanaMessageButton = document.querySelector('#signSolanaMessage')
+// signSolanaMessageButton?.addEventListener('click', async () => {
+// 	if (!sbtauth.provider.solanaProvider) {
+// 		return
+// 	}
+// 	const signature = await sbtauth.provider.solanaProvider!.signMessage(
+// 		'Hello world',
+// 	)
+// 	window.alert(signature)
+// })
 
-const signSoalanaTransactionButton = document.querySelector('#signSolanaTransaction')
-signSoalanaTransactionButton?.addEventListener('click', async () => {
-	if (!sbtauth.provider.solanaProvider) {
-		return
-	}
-	const transaction = new Transaction().add(
-		SystemProgram.transfer({
-			fromPubkey: sbtauth.provider.solanaProvider!.publicKey!,
-			toPubkey: new PublicKey('Bzq4zZ7KX9q4zZ7KX9q4zZ7KX9q4zZ7KX9q4zZ7KX9q'),
-			lamports: 1_000_000,
-		}),
-	)
-	const signature = await sbtauth.provider.solanaProvider!.sendTransaction(transaction)
-	window.alert(signature)
-})
+// const signSoalanaTransactionButton = document.querySelector('#signSolanaTransaction')
+// signSoalanaTransactionButton?.addEventListener('click', async () => {
+// 	if (!sbtauth.provider.solanaProvider) {
+// 		return
+// 	}
+// 	const transaction = new Transaction().add(
+// 		SystemProgram.transfer({
+// 			fromPubkey: sbtauth.provider.solanaProvider!.publicKey!,
+// 			toPubkey: new PublicKey('Bzq4zZ7KX9q4zZ7KX9q4zZ7KX9q4zZ7KX9q4zZ7KX9q'),
+// 			lamports: 1_000_000,
+// 		}),
+// 	)
+// 	const signature = await sbtauth.provider.solanaProvider!.sendTransaction(transaction)
+// 	window.alert(signature)
+// })

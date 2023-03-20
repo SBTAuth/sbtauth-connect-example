@@ -13,7 +13,9 @@
 		"vite": "^3.1.0"
 	},
 	"dependencies": {
+		"@metamask/eth-sig-util": "^5.0.2",
 		"@sbtauth/sbtauth-wallet": "^0.7.16",
-		"ethers": "^5.6.9"
+		"@sbtauth/common": "^0.7.3",
+		"ethers": "^5.7.0"
 	}
 }
